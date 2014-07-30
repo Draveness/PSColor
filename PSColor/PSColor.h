@@ -1,5 +1,5 @@
 //
-//  PSColorComponent.h
+//  PSColor.h
 //  PSColor
 //
 //  Created by apple on 14/7/30.
@@ -10,8 +10,6 @@
 
 @interface PSColor : NSObject
 
-@property (nonatomic) CGFloat redComponent;
-@property (nonatomic) CGFloat greenComponent;
-@property (nonatomic) CGFloat blueComponent;
++ (UIColor *)colorWithHexColor:(NSString *)hexColor;
 
 @end

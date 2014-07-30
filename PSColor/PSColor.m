@@ -1,5 +1,5 @@
 //
-//  PSColorComponent.m
+//  PSColor.m
 //  PSColor
 //
 //  Created by apple on 14/7/30.
@@ -7,33 +7,65 @@
 //
 
 #import "PSColor.h"
+#import "PSColorComponent.h"
+#import "NSString+IntValue.h"
+
+@interface PSColor ()
+
+
+@end
 
 @implementation PSColor
 
-- (id)init
++ (UIColor *)colorWithHexColor:(NSString *)hexColor
 {
-    self = [super init];
-    if (self) {
-        self.redComponent = 0;
-        self.greenComponent = 0;
-        self.blueComponent = 0;
+    UIColor *color = [[UIColor alloc] init];
+    switch (hexColor.length) {
+        case 4:
+            return [self handleThreeBitString:hexColor];
+            break;
+        case 7:
+            return [self handleSixBitString:hexColor];
+            break;
+        default:
+            break;
     }
-    return self;
+    return color;
 }
 
-- (void)setRedComponent:(CGFloat)redComponent
++ (UIColor *)handleThreeBitString:(NSString *)hexColor
 {
-    _redComponent = (CGFloat)redComponent / 256.0;
+    NSString *redComponent = [hexColor substringWithRange:NSMakeRange(1, 1)];
+    NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(2, 1)];
+    NSString *blueComponent = [hexColor substringWithRange:NSMakeRange(3, 1)];
+    hexColor = [NSString stringWithFormat:@"#%@%@%@%@%@%@",redComponent,redComponent,greenComponent,greenComponent,blueComponent,blueComponent];
+    return [self handleSixBitString:hexColor];
 }
 
-- (void)setGreenComponent:(CGFloat)greenComponent
++ (UIColor *)handleSixBitString:(NSString *)hexColor
 {
-    _greenComponent = (CGFloat)greenComponent / 256.0;
+    NSString *redComponent = [hexColor substringWithRange:NSMakeRange(1, 2)];
+    NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(3, 2)];
+    NSString *blueComponent = [hexColor substringWithRange:NSMakeRange(5, 2)];
+    PSColorComponent *result = [[PSColorComponent alloc] init];
+    result.redComponent = [self hexToDemical:redComponent];
+    result.greenComponent = [self hexToDemical:greenComponent];
+    result.blueComponent = [self hexToDemical:blueComponent];
+    return [UIColor colorWithRed:result.redComponent green:result.greenComponent blue:result.blueComponent alpha:1.0];
 }
 
-- (void)setBlueComponent:(CGFloat)blueComponent
++ (NSUInteger)hexToDemical:(NSString *)hex
 {
-    _blueComponent = (CGFloat)blueComponent / 256.0;
+    NSUInteger demical = 0;
+    NSUInteger digit = 0;
+    NSString *lastChar = [[NSString alloc] init];
+    while (hex.length) {
+        lastChar = [hex substringWithRange:NSMakeRange(hex.length - 1, 1)];
+        hex = [hex substringToIndex:hex.length - 1];
+        demical += ([NSString integerValueWithChar:lastChar] * pow(16, digit));
+        digit++;
+    }
+    return demical;
 }
 
 @end

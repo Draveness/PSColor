@@ -22,8 +22,8 @@
 		18E6E7151988E8EA006FD0AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18E6E7131988E8EA006FD0AF /* InfoPlist.strings */; };
 		18E6E7171988E8EA006FD0AF /* PSColorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7161988E8EA006FD0AF /* PSColorTests.m */; };
 		18E6E7261988E901006FD0AF /* NSString+IntValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7211988E901006FD0AF /* NSString+IntValue.m */; };
-		18E6E7271988E901006FD0AF /* PSColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7231988E901006FD0AF /* PSColor.m */; };
-		18E6E7281988E901006FD0AF /* PSColorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7251988E901006FD0AF /* PSColorEngine.m */; };
+		18E6E7271988E901006FD0AF /* PSColorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7231988E901006FD0AF /* PSColorComponent.m */; };
+		18E6E7281988E901006FD0AF /* PSColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6E7251988E901006FD0AF /* PSColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,10 @@
 		18E6E7161988E8EA006FD0AF /* PSColorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSColorTests.m; sourceTree = "<group>"; };
 		18E6E7201988E901006FD0AF /* NSString+IntValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IntValue.h"; sourceTree = "<group>"; };
 		18E6E7211988E901006FD0AF /* NSString+IntValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IntValue.m"; sourceTree = "<group>"; };
-		18E6E7221988E901006FD0AF /* PSColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSColor.h; sourceTree = "<group>"; };
-		18E6E7231988E901006FD0AF /* PSColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSColor.m; sourceTree = "<group>"; };
-		18E6E7241988E901006FD0AF /* PSColorEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSColorEngine.h; sourceTree = "<group>"; };
-		18E6E7251988E901006FD0AF /* PSColorEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSColorEngine.m; sourceTree = "<group>"; };
+		18E6E7221988E901006FD0AF /* PSColorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSColorComponent.h; sourceTree = "<group>"; };
+		18E6E7231988E901006FD0AF /* PSColorComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSColorComponent.m; sourceTree = "<group>"; };
+		18E6E7241988E901006FD0AF /* PSColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSColor.h; sourceTree = "<group>"; };
+		18E6E7251988E901006FD0AF /* PSColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +165,10 @@
 		18E6E7291988E9F6006FD0AF /* PSColorEngine */ = {
 			isa = PBXGroup;
 			children = (
-				18E6E7241988E901006FD0AF /* PSColorEngine.h */,
-				18E6E7251988E901006FD0AF /* PSColorEngine.m */,
-				18E6E7221988E901006FD0AF /* PSColor.h */,
-				18E6E7231988E901006FD0AF /* PSColor.m */,
+				18E6E7241988E901006FD0AF /* PSColor.h */,
+				18E6E7251988E901006FD0AF /* PSColor.m */,
+				18E6E7221988E901006FD0AF /* PSColorComponent.h */,
+				18E6E7231988E901006FD0AF /* PSColorComponent.m */,
 				18E6E7201988E901006FD0AF /* NSString+IntValue.h */,
 				18E6E7211988E901006FD0AF /* NSString+IntValue.m */,
 			);
@@ -274,10 +274,10 @@
 			files = (
 				18E6E7021988E8E9006FD0AF /* ViewController.m in Sources */,
 				18E6E7261988E901006FD0AF /* NSString+IntValue.m in Sources */,
-				18E6E7281988E901006FD0AF /* PSColorEngine.m in Sources */,
+				18E6E7281988E901006FD0AF /* PSColor.m in Sources */,
 				18E6E6FC1988E8E9006FD0AF /* AppDelegate.m in Sources */,
 				18E6E6F81988E8E9006FD0AF /* main.m in Sources */,
-				18E6E7271988E901006FD0AF /* PSColor.m in Sources */,
+				18E6E7271988E901006FD0AF /* PSColorComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +482,7 @@
 				18E6E71C1988E8EA006FD0AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18E6E71D1988E8EA006FD0AF /* Build configuration list for PBXNativeTarget "PSColorTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +491,7 @@
 				18E6E71F1988E8EA006FD0AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
