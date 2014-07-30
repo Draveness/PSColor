@@ -4,7 +4,7 @@ PSColor
 
 To use PSColor:
 
-1 - Copy over the `PSColor` folder to your project folder.
+1 - Copy over the `PSColorEngine` folder to your project folder.
 
 2 - Add `#import "PSColorEngine.h"` to your file.
 
