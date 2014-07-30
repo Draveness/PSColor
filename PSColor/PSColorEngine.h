@@ -13,4 +13,3 @@
 + (UIColor *)colorWithHexColor:(NSString *)hexColor;
 
 @end
-g
