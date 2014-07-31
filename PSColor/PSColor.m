@@ -21,11 +21,17 @@
 {
     UIColor *color = [[UIColor alloc] init];
     switch (hexColor.length) {
-        case 4:
+        case 3:
             return [self handleThreeBitString:hexColor];
             break;
-        case 7:
+        case 4:
+            return [self handleFourBitString:hexColor];
+            break;
+        case 6:
             return [self handleSixBitString:hexColor];
+            break;
+        case 7:
+            return [self handleSevenBitString:hexColor];
             break;
         default:
             break;
@@ -35,14 +41,32 @@
 
 + (UIColor *)handleThreeBitString:(NSString *)hexColor
 {
+    NSString *redComponent = [hexColor substringWithRange:NSMakeRange(0, 1)];
+    NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(1, 1)];
+    NSString *blueComponent = [hexColor substringWithRange:NSMakeRange(2, 1)];
+    hexColor = [NSString stringWithFormat:@"#%@%@%@%@%@%@",redComponent,redComponent,greenComponent,greenComponent,blueComponent,blueComponent];
+    return [self handleSevenBitString:hexColor];
+}
+
++ (UIColor *)handleSixBitString:(NSString *)hexColor
+{
+    NSString *redComponent = [hexColor substringWithRange:NSMakeRange(0, 2)];
+    NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(2, 2)];
+    NSString *blueComponent = [hexColor substringWithRange:NSMakeRange(4, 2)];
+    hexColor = [NSString stringWithFormat:@"#%@%@%@",redComponent,greenComponent,blueComponent];
+    return [self handleSevenBitString:hexColor];
+}
+
++ (UIColor *)handleFourBitString:(NSString *)hexColor
+{
     NSString *redComponent = [hexColor substringWithRange:NSMakeRange(1, 1)];
     NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(2, 1)];
     NSString *blueComponent = [hexColor substringWithRange:NSMakeRange(3, 1)];
     hexColor = [NSString stringWithFormat:@"#%@%@%@%@%@%@",redComponent,redComponent,greenComponent,greenComponent,blueComponent,blueComponent];
-    return [self handleSixBitString:hexColor];
+    return [self handleSevenBitString:hexColor];
 }
 
-+ (UIColor *)handleSixBitString:(NSString *)hexColor
++ (UIColor *)handleSevenBitString:(NSString *)hexColor
 {
     NSString *redComponent = [hexColor substringWithRange:NSMakeRange(1, 2)];
     NSString *greenComponent = [hexColor substringWithRange:NSMakeRange(3, 2)];
