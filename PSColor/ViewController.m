@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [PSColor colorWithHexColor:@"#F00"];
+    self.view.backgroundColor = [PSColor colorWithHex:@"#F00"];
 }
 
 - (void)didReceiveMemoryWarning

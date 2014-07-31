@@ -17,9 +17,8 @@
 
 @implementation PSColor
 
-+ (UIColor *)colorWithHexColor:(NSString *)hexColor
++ (UIColor *)colorWithHex:(NSString *)hexColor
 {
-    UIColor *color = [[UIColor alloc] init];
     switch (hexColor.length) {
         case 3:
             return [self handleThreeBitString:hexColor];
@@ -36,7 +35,7 @@
         default:
             break;
     }
-    return color;
+    return [UIColor whiteColor];
 }
 
 + (UIColor *)handleThreeBitString:(NSString *)hexColor

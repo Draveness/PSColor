@@ -10,6 +10,6 @@
 
 @interface PSColor : NSObject
 
-+ (UIColor *)colorWithHexColor:(NSString *)hexColor;
++ (UIColor *)colorWithHex:(NSString *)hexColor;
 
 @end
